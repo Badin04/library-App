@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Borrow Book</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #f9f9f9;
+      font-family: Arial, sans-serif;
+    }
+    .form-container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 420px;
+    }
+    .form-container h1 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .form-container label {
+      display: block;
+      text-align: left;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .form-container input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .button-group a,
+    .button-group button {
+        width: 120px;      
+        height: 45px;     
+        display: inline-flex;
+        align-items: center; 
+        justify-content: center;
+    }
+
+    .button-back {
+      border-radius: 5px;
+      background-color: #6c757d;
+      color: white;
+    }
+    .button-back:hover {
+      background-color: #5a6268;
+    }
+    .button-borrow {
+      background-color: #007bff;
+      color: white;
+    }
+    .button-borrow:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>การยืมหนังสือ</h1>
+    <form action="/borrows/borrow" method="POST">
+      
+      <!-- ช่องค้นหาหนังสือ -->
+      <label for="bookInput">ชื่อหนังสือ:</label>
+      <input list="books" id="bookInput" placeholder="ป้อนชื่อหนังสือ..." required>
+      <datalist id="books">
+        <% books.forEach(book => { %>
+          <% if (book.available > 0) { %>
+            <option data-id="<%= book.id %>" value="<%= book.title %> (Available: <%= book.available %>)"></option>
+          <% } %>
+        <% }) %>
+      </datalist>
+      <input type="hidden" id="bookId" name="book_id">
+
+      <!-- ช่องค้นหาสมาชิก -->
+      <label for="memberInput">ชื่อสมาชิก:</label>
+      <input list="members" id="memberInput" placeholder="ป้อนชื่อสมาชิก..." required>
+      <datalist id="members">
+        <% members.forEach(member => { %>
+          <option data-id="<%= member.id %>" value="<%= member.name %>"></option>
+        <% }) %>
+      </datalist>
+      <input type="hidden" id="memberId" name="member_id">
+
+      <div class="button-group">
+        <a href="/borrows" class="button-back">กลับ</a>
+        <button type="submit" class="button-borrow">บันทึกการยืม</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // ตรวจจับการเลือกชื่อหนังสือ
+    document.getElementById("bookInput").addEventListener("input", function() {
+      let input = this.value;
+      let options = document.querySelectorAll("#books option");
+      let hidden = document.getElementById("bookId");
+      hidden.value = "";
+      options.forEach(opt => {
+        if (opt.value === input) {
+          hidden.value = opt.getAttribute("data-id");
+        }
+      });
+    });
+
+    //ตรวจจับการเลือกชื่อลูกค้า
+    document.getElementById("memberInput").addEventListener("input", function() {
+      let input = this.value;
+      let options = document.querySelectorAll("#members option");
+      let hidden = document.getElementById("memberId");
+      hidden.value = "";
+      options.forEach(opt => {
+        if (opt.value === input) {
+          hidden.value = opt.getAttribute("data-id");
+        }
+      });
+    });
+  </script>
+</body>
+</html>

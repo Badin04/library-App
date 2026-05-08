@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Books List</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .button-group {
+            display: flex;
+            justify-content: space-between; /* แยกปุ่มไปซ้าย-ขวา */
+            margin-top: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .edit-btn {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .delete-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .back-btn, .add-btn {
+            padding: 8px 16px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .back-btn {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .add-btn {
+            background-color: #28a745;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>ตารางข้อมูลหนังสือ</h1>
+    <div class="button-group">
+        <button class="back-btn" onclick="window.location.href='/'">กลับไปหน้าหลัก</button>
+        <button class="add-btn" onclick="window.location.href='/books/add'">เพิ่มหนังสือ</button>
+    </div>
+    
+    <table>
+        <tr>
+            <th>ลำดับ</th>
+            <th>ชื่อหนังสือ</th>
+            <th>ชื่อผู้แต่ง</th>
+            <th>ปีที่พิมพ์</th>
+            <th>จำนวนเล่ม</th>
+            <th>การดำเนินการ</th>
+        </tr>
+        <% books.forEach(book => { %>
+        <tr>
+            <td><%= book.id %></td>
+            <td><%= book.title %></td>
+            <td><%= book.author %></td>
+            <td><%= book.year %></td>
+            <td><%= book.available %></td>
+            <td>
+                <a href="/books/edit/<%= book.id %>">
+                    <button class="edit-btn">แก้ไขข้อมูล</button>
+                </a>
+                &nbsp;&nbsp;
+                <!-- ใช้ data-id และ data-title แทนการส่ง string ตรงๆ -->
+                <button class="delete-btn" 
+                        data-id="<%= book.id %>" 
+                        data-title="<%= book.title.replace(/"/g, '&quot;') %>">
+                    ลบข้อมูล
+                </button>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+
+    <script>
+        //เพิ่ม event listener ให้ทุกปุ่ม Delete
+        document.querySelectorAll('.delete-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const bookId = this.getAttribute('data-id');
+                const bookTitle = this.getAttribute('data-title');
+                const confirmed = confirm(`คุณต้องการลบหนังสือ "${bookTitle}" หรือไม่?`);
+                if (confirmed) {
+                    window.location.href = `/books/delete/${bookId}`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Member</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+    /* จัดรูปแบบที่อยู่ใน body ให้มาอยู่ตรงกลางทั้งแนวตั้งและแนวนอน */
+    body {
+      display: flex;                
+      justify-content: center;    
+      align-items: center;     
+      height: 100vh;           
+      margin: 0;               
+      background: #f9f9f9;      
+      font-family: Arial, sans-serif;
+    }
+
+    .form-container {
+      background: white;           
+      padding: 30px;               
+      border-radius: 10px;         
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+      text-align: center;           
+      width: 350px;                 
+    }
+
+    /*Add Member */
+    .form-container h1 {
+      margin-bottom: 20px;
+    }
+
+    /* ช่อง ของ input */
+    .form-container label {
+      display: block;              
+      text-align: left;             
+      margin-top: 10px;          
+      font-weight: bold;        
+    }
+
+    /* ช่อง input กรอกข้อมูล */
+    .form-container input {
+      width: 100%;               
+      padding: 8px;             
+      margin-top: 5px;           
+      border: 1px solid #ccc;       
+      border-radius: 5px;          
+    }
+
+    /* ปุ่มบันทึก */
+    .form-container button {
+      background-color: #007bff;     
+      margin-bottom: 15px;
+    }
+
+    /* ปุ่มกลับ */
+    .form-container .back-btn {
+      background-color: #6c757d;  
+      margin-bottom: 15px;     
+    }
+
+     /* กล่องปุ่มด้านล่าง จัดแยกซ้าย-ขวา */
+    .button-group {
+      display: flex;
+      justify-content: space-between; 
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>เพื่มข้อมูลสมาชิก</h1>
+        <form action="/members/add" method="POST">
+            <label for="title">ชื่อ-นามสกุล</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="title">อีเมล</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="title">เบอร์โทร</label>
+            <input type="number" id="phone" name="phone" required>
+
+            <div class="button-group">
+                <a href="/members"><button type="button" class="back-btn">กลับ</button></a>
+                <button type="submit">บันทึก</button>
+            </div>
+        </form>
+    </div>    
+</body>
+</html>

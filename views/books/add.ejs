@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Book</title>
+
+  <link rel="stylesheet" href="/css/style.css">
+
+  <style>
+    body {
+      display: flex;                
+      justify-content: center;     
+      align-items: center;         
+      height: 100vh;              
+      margin: 0;                  
+      background: #f9f9f9;          
+      font-family: Arial, sans-serif;
+    }
+
+    .form-container {
+      background: white;            
+      padding: 30px;                
+      border-radius: 10px;          
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+      text-align: center;           
+      width: 350px;              
+    }
+
+    /*Add Book */
+    .form-container h1 {
+      margin-bottom: 20px;
+    }
+
+    /*ช่อง ของ input */
+    .form-container label {
+      display: block;               
+      text-align: left;             
+      margin-top: 10px;             
+      font-weight: bold;         
+    }
+
+    /* ช่อง input กรอกข้อมูล */
+    .form-container input {
+      width: 100%;                 
+      padding: 8px;                 
+      margin-top: 5px;              
+      border: 1px solid #ccc;      
+      border-radius: 5px;          
+    }
+
+    /* ปุ่มบันทึก */
+    .form-container button {
+      background-color: #0371d1;    
+      margin-bottom: 15px;
+    }
+    
+    .form-container .back-btn {
+      background-color: #6c757d;    
+      margin-bottom: 15px;          
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>เพิ่มข้อมูลหนังสือ</h1>
+
+    <!--เพิ่มข้อมูลหนังสือ -->
+    <form action="/books/add" method="POST">
+      <!-- ช่องกรอกชื่อหนังสือ -->
+      <label for="title">ชื่อหนังสือ</label>
+      <input type="text" id="title" name="title" required>
+
+      <!-- ช่องกรอกชื่อผู้แต่ง -->
+      <label for="author">ชื่อผู้แต่ง</label>
+      <input type="text" id="author" name="author" required>
+
+      <!-- ช่องกรอกปีพิมพ์ -->
+      <label for="year">ปีที่ตีพิมพ์</label>
+      <input type="number" id="year" name="year" required>
+
+      <!-- ช่องกรอกจำนวนเล่มที่เหลือ -->
+      <label for="available">จำนวนเล่ม</label>
+      <input type="number" id="available" name="available" required>
+
+    <div class="button-group">
+        <a href="/books"><button type="button" class="back-btn">กลับ</button></a>
+        <button type="submit">บันทึก</button>
+    </div>
+
+    </form>
+  </div>
+</body>
+</html>

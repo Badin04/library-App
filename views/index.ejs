@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>Library System</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Font Awesome สำหรับไอคอน -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 220px;
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+        }
+        .sidebar h2 {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar li {
+            margin: 15px 0;
+        }
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background: #34495e;
+            border-radius: 8px;
+            color: #ecf0f1;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .sidebar a:hover {
+            background: #1abc9c;
+            color: white;
+            transform: translateX(5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .sidebar a i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+            padding: 20px 40px;
+        }
+
+        .content h1 {
+            font-size: 48px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .content h2 {
+            font-size: 28px;
+            color: #34495e;
+            margin-bottom: 40px;
+        }
+
+        .content-img {
+            width: 90%;          /* ขยายให้เต็มพื้นที่เกือบทั้งหมด */
+            max-width: 1200px;   /* จำกัดความกว้างสูงสุด */
+            height: 60vh;        /* สูง 80% ของหน้าจอ */
+            object-fit: cover;   /* ครอบรูปเต็มพื้นที่โดยไม่บิดสัดส่วน */
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>เมนู</h2>
+        <ul>
+            <li><a href="/"><i class="fa fa-home"></i> หน้าหลัก</a></li>
+            <li><a href="/books"><i class="fa fa-book"></i> ระบบการจัดการหนังสือ</a></li>
+            <li><a href="/members"><i class="fa fa-user"></i> ระบบการจัดการสมาชิก</a></li>
+            <li><a href="/borrows"><i class="fa fa-book-reader"></i>ระบบการยืม–คืนหนังสือ</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h1>Library Management</h1>
+        <h2>ยินดีต้อนรับสู่ระบบการจัดการห้องสมุดการยืมและคืนหนังสือห้องสมุด</h2>
+        <img src="/images/gabriel-sollmann-Y7d265_7i08-unsplash.jpg" alt="Library" class="content-img">
+    </div>
+</body>
+</html>

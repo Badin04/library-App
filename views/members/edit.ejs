@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>แก้ไขข้อมูลสมาชิก</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+
+    body {
+      display: flex;                
+      justify-content: center;    
+      align-items: center;        
+      height: 100vh;              
+      margin: 0;                 
+      background: #f9f9f9;        
+      font-family: Arial, sans-serif;
+    }
+
+    .form-container {
+      background: white;            
+      padding: 30px;               
+      border-radius: 10px;        
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+      text-align: center;          
+      width: 350px;                
+    }
+
+    /*Edit Member */
+    .form-container h1 {
+      margin-bottom: 20px;
+    }
+
+    /*ช่องของ input */
+    .form-container label {
+      display: block;              
+      text-align: left;          
+      margin-top: 10px;          
+      font-weight: bold;        
+    }
+
+    /* ช่อง input กรอกข้อมูล */
+    .form-container input {
+      width: 100%;                 
+      padding: 8px;                
+      margin-top: 5px;            
+      border: 1px solid #ccc;       
+      border-radius: 5px;          
+    }
+
+    /* ปุ่ม Update */
+    .form-container button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #007bff;   
+      color: white;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>แก้ไขข้อมูลสมาชิก</h1>
+        <form action="/members/edit/<%= member.id %>" method="POST">
+
+            <label for="title">ชื่อสมาชิก</label>
+            <input type="text" name="name" value="<%= member.name %>" required><br>
+            <label for="title">อีเมล</label>
+            <input type="email" name="email" value="<%= member.email %>" required><br>
+            <label for="title">เบอร์โทร</label>
+            <input type="text" name="phone" value="<%= member.phone %>"><br>
+            <button type="submit">แก้ไขข้อมูล</button>
+        </form>
+    </div>
+</body>
+</html>
