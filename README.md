@@ -4,29 +4,16 @@
 
 **Live Demo:** [ https://library-app-yho4.onrender.com]
 
----
-
 ##  Features (ฟีเจอร์เด่นของระบบ)
 * **Book Management:** ระบบเพิ่ม ลบ แก้ไข และดูรายชื่อหนังสือทั้งหมดในคลัง
 * **Member Management:** ระบบจัดการข้อมูลสมาชิกห้องสมุด (สมัครสมาชิก/แก้ไขข้อมูล)
 * **Borrow & Return System:** ระบบบันทึกการยืม-คืนหนังสือ พร้อมเชื่อมโยงข้อมูลระหว่างสมาชิกและหนังสือ
-
----
 
 ## Tech Stack & Architecture
 * **Frontend:** HTML5, CSS3, EJS (Embedded JavaScript templates), Tailwind CSS
 * **Backend:** Node.js, Express.js
 * **Database:** SQLite (`sqlite3`)
 * **Architecture:** Model-View-Controller (MVC) Pattern
-
----
-
-## Web Design Tips (เทคนิคการตกแต่งหน้าเว็บ)
-ในโปรเจกต์นี้มีการใช้ **Emoji** และสัญลักษณ์พิเศษต่างๆ เพื่อเพิ่มสีสันและช่วยให้ UI/UX ดูน่าใช้งานและเป็นมิตรกับผู้ใช้มากขึ้น โดยเรียกใช้งานคลัง Emoji บนระบบปฏิบัติการ Windows ผ่านคีย์ลัด:
-
-<blockquote>
-📌 <strong>คีย์ลัด:</strong> <code>Windows Key</code> + <code>V</code>เพื่อเปิดหน้าต่าง Clipboard History / Emoji Panel 
-</blockquote>
 
 ---
 
