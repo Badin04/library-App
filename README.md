@@ -13,7 +13,7 @@
 
 ---
 
-## 🛠️ Tech Stack & Architecture
+## Tech Stack & Architecture
 * **Frontend:** HTML5, CSS3, EJS (Embedded JavaScript templates), Tailwind CSS
 * **Backend:** Node.js, Express.js
 * **Database:** SQLite (`sqlite3`)
