@@ -25,7 +25,7 @@
 ในโปรเจกต์นี้มีการใช้ **Emoji** และสัญลักษณ์พิเศษต่างๆ เพื่อเพิ่มสีสันและช่วยให้ UI/UX ดูน่าใช้งานและเป็นมิตรกับผู้ใช้มากขึ้น โดยเรียกใช้งานคลัง Emoji บนระบบปฏิบัติการ Windows ผ่านคีย์ลัด:
 
 <blockquote>
-📌 <strong>คีย์ลัด:</strong> <code>Windows Key</code> + <code>V</code>เพื่อเปิดหน้าต่าง Clipboard History / Emoji Panel แล้วเลือกใส่อีโมจิต่างๆ ลงในโค้ดหน้าเว็บได้ทันที!
+📌 <strong>คีย์ลัด:</strong> <code>Windows Key</code> + <code>V</code>เพื่อเปิดหน้าต่าง Clipboard History / Emoji Panel 
 </blockquote>
 
 ---
